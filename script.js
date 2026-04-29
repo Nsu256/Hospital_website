@@ -3,7 +3,7 @@
 // Navigation bar button hover effect
 const navButton = document.querySelector('.navbtn button');
 function navHoverEffect() {
-	this.style.boxShadow = '0 0 20px navy';
+	this.style.boxShadow = '0 0 10px navy';
 }
 if (navButton) navButton.addEventListener('mouseover', navHoverEffect);
 
