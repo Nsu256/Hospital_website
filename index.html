@@ -643,6 +643,59 @@
     </footer>
 
     <!-- End of the Footer Section -->
+
+    <!-- Start of the Modal Form -->
+    <div id="appointmentModal" class="modal">
+        <div class="modalcontent">
+            <span class="close">&times;</span>
+            <h2>Book an Appointment</h2>
+            <form id="appointmentForm">
+                <div class="formgroup">
+                    <label for="fullname">Full Name:</label>
+                    <input type="text" id="fullname" name="fullname" required>
+                </div>
+
+                <div class="formgroup">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+
+                <div class="formgroup">
+                    <label for="phone">Phone Number:</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+
+                <div class="formgroup">
+                    <label for="date">Preferred Date:</label>
+                    <input type="date" id="date" name="date" required>
+                </div>
+
+                <div class="formgroup">
+                    <label for="doctor">Select Doctor:</label>
+                    <select id="doctor" name="doctor" required>
+                        <option value="">Choose a doctor...</option>
+                        <option value="Doctor Nakuya Patricia">Doctor Nakuya Patricia</option>
+                        <option value="Doctor Ainembabazi Bridget">Doctor Ainembabazi Bridget</option>
+                        <option value="Doctor Balibaseka Deogiracious">Doctor Balibaseka Deogiracious</option>
+                        <option value="Doctor Kijjambu Joseph">Doctor Kijjambu Joseph</option>
+                        <option value="Doctor Nsubuga Ediger">Doctor Nsubuga Ediger</option>
+                        <option value="Doctor Ssentongo Edrine">Doctor Ssentongo Edrine</option>
+                        <option value="Doctor Wambogo Hassan Sadat">Doctor Wambogo Hassan Sadat</option>
+                        <option value="Doctor Omolo Pasikali">Doctor Omolo Pasikali</option>
+                    </select>
+                </div>
+
+                <div class="formgroup">
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" rows="4"></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn">Submit Appointment</button>
+            </form>
+        </div>
+    </div>
+    <!-- End of the Modal Form -->
+
  <script src="script.js"></script>    
 </body>
 </html>
