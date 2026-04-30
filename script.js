@@ -71,7 +71,7 @@ if (heroTitle) {
             heroCharacterIndex = 0;
         }
 
-        setTimeout(typeHeroTitle, 120);
+        setTimeout(typeHeroTitle, 200);
     }
 
     typeHeroTitle();
