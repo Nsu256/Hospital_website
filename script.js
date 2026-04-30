@@ -89,6 +89,23 @@ function navResetEffect() {
 }
 if (navButton) navButton.addEventListener('mouseout', navResetEffect);
 
+// Navigation link hover effect
+const navLinks = document.querySelectorAll('.navanchours nav a');
+navLinks.forEach(link => {
+    function navLinkHover() {
+        this.style.color = 'navy';
+        this.style.textDecoration = 'underline';
+    }
+
+    function navLinkReset() {
+        this.style.color = 'black';
+        this.style.textDecoration = 'none';
+    }
+
+    link.addEventListener('mouseover', navLinkHover);
+    link.addEventListener('mouseout', navLinkReset);
+});
+
 
 // Hero button one hover effect
 const clickHereBtn = document.querySelector('.herobtn1');
