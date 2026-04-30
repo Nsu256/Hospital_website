@@ -176,9 +176,31 @@ html{
 }
 
 .servicescards{
-    display: flex;
-    justify-content: space-between;
     margin-top: 20px;
+    overflow: hidden;
+}
+
+.servicescards-track{
+    display: flex;
+    width: max-content;
+    gap: 20px;
+    animation: scrollCards 30s linear infinite;
+    will-change: transform;
+}
+
+.servicescards-group{
+    display: flex;
+    gap: 20px;
+    flex-shrink: 0;
+}
+
+@keyframes scrollCards {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
 }
 
 .servicescards .card{
@@ -186,6 +208,7 @@ html{
     height: 200px;
     background-color:  rgb(154, 220, 250);
     border-radius: 20px;
+    flex-shrink: 0;
 }
 
 .card{
