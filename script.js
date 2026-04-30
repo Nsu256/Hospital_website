@@ -126,36 +126,6 @@ bookAppointmentBtn.addEventListener('mouseout', btnTwoReset);
 // END OF THE HERO SECTION
 
 
-// START OF THE SERVICES SECTION
-
-// Service cards horizontal scrolling
-const servicesCards = document.querySelector('.servicescards');
-if (servicesCards) {
-    const originalCards = Array.from(servicesCards.querySelectorAll('.card'));
-
-    if (originalCards.length) {
-        const track = document.createElement('div');
-        track.className = 'servicescards-track';
-
-        const firstGroup = document.createElement('div');
-        firstGroup.className = 'servicescards-group';
-
-        originalCards.forEach(card => {
-            firstGroup.appendChild(card);
-        });
-
-        const secondGroup = firstGroup.cloneNode(true);
-
-        track.appendChild(firstGroup);
-        track.appendChild(secondGroup);
-
-        servicesCards.appendChild(track);
-    }
-}
-
-// END OF THE SERVICES SECTION
-
-
 // START OF THE MODAL SECTION
 
 // Get the modal
@@ -201,3 +171,33 @@ if (appointmentForm)
 	 appointmentForm.addEventListener('submit', handleFormSubmit);
 
 // END OF THE MODAL SECTION
+
+
+// START OF THE SERVICES SECTION
+
+// Service cards horizontal scrolling
+const servicesCards = document.querySelector('.servicescards');
+if (servicesCards) {
+    const originalCards = Array.from(servicesCards.querySelectorAll('.card'));
+
+    if (originalCards.length) {
+        const track = document.createElement('div');
+        track.className = 'servicescards-track';
+
+        const firstGroup = document.createElement('div');
+        firstGroup.className = 'servicescards-group';
+
+        originalCards.forEach(card => {
+            firstGroup.appendChild(card);
+        });
+
+        const secondGroup = firstGroup.cloneNode(true);
+
+        track.appendChild(firstGroup);
+        track.appendChild(secondGroup);
+
+        servicesCards.appendChild(track);
+    }
+}
+
+// END OF THE SERVICES SECTION
