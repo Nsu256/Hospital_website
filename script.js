@@ -1,5 +1,82 @@
 // START OF THE HERO SECTION
 
+// Hero heading typewriter effect
+const heroTitle = document.getElementById('heroTitle');
+if (heroTitle) {
+    const heroTitleSegments = [
+        { type: 'text', value: 'Tu ' },
+        { type: 'span', value: 'Sonirisa' },
+        { type: 'text', value: ', tu mejor ' },
+        { type: 'lineBreak' },
+        { type: 'span', value: 'PRESENTACION' }
+    ];
+
+    let heroSegmentIndex = 0;
+    let heroCharacterIndex = 0;
+
+    function renderHeroTitle() {
+        let heroTitleMarkup = '';
+
+        for (let index = 0; index < heroSegmentIndex; index += 1) {
+            const segment = heroTitleSegments[index];
+
+            if (segment.type === 'text') {
+                heroTitleMarkup += segment.value;
+            } else if (segment.type === 'span') {
+                heroTitleMarkup += `<span>${segment.value}</span>`;
+            } else if (segment.type === 'lineBreak') {
+                heroTitleMarkup += '<br>';
+            }
+        }
+
+        const activeSegment = heroTitleSegments[heroSegmentIndex];
+        if (!activeSegment) {
+            heroTitle.innerHTML = '';
+            return;
+        }
+
+        if (activeSegment.type === 'text') {
+            heroTitleMarkup += activeSegment.value.slice(0, heroCharacterIndex);
+        } else if (activeSegment.type === 'span') {
+            heroTitleMarkup += `<span>${activeSegment.value.slice(0, heroCharacterIndex)}</span>`;
+        }
+
+        heroTitle.innerHTML = heroTitleMarkup;
+    }
+
+    function typeHeroTitle() {
+        const activeSegment = heroTitleSegments[heroSegmentIndex];
+
+        if (!activeSegment) {
+            heroSegmentIndex = 0;
+            heroCharacterIndex = 0;
+            heroTitle.innerHTML = '';
+            setTimeout(typeHeroTitle, 700);
+            return;
+        }
+
+        if (activeSegment.type === 'lineBreak') {
+            heroSegmentIndex += 1;
+            heroCharacterIndex = 0;
+            typeHeroTitle();
+            return;
+        }
+
+        renderHeroTitle();
+
+        if (heroCharacterIndex < activeSegment.value.length) {
+            heroCharacterIndex += 1;
+        } else {
+            heroSegmentIndex += 1;
+            heroCharacterIndex = 0;
+        }
+
+        setTimeout(typeHeroTitle, 120);
+    }
+
+    typeHeroTitle();
+}
+
 // Navigation bar button hover effect
 const navButton = document.querySelector('.navbtn button');
 function navHoverEffect() {
