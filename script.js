@@ -218,3 +218,71 @@ if (servicesCards) {
 }
 
 // END OF THE SERVICES SECTION
+
+
+// START OF THE DOCTOR CARDS SECTION
+
+// Get all doctor cards
+const doctorCards = document.querySelectorAll('.doctorcard');
+
+// Function for when mouse is over the card
+function doctorCardHover() {
+    this.style.transform = 'scale(1.1) translateY(-10px)';
+    this.style.boxShadow = '0 10px 25px rgba(0, 0, 0, 0.3)';
+    this.style.transition = 'all 0.3s ease-in-out';
+}
+
+// Function for when mouse leaves the card
+function doctorCardReset() {
+    this.style.transform = 'scale(1) translateY(0)';
+    this.style.boxShadow = 'none';
+    this.style.transition = 'all 0.3s ease-in-out';
+}
+
+// Add hover effect to each doctor card
+doctorCards.forEach(card => {
+    card.addEventListener('mouseover', doctorCardHover);
+    card.addEventListener('mouseout', doctorCardReset);
+});
+
+// END OF THE DOCTOR CARDS SECTION
+
+
+// START OF THE MEDICAL FORM SECTION
+
+// Get medical form
+const medicalForm = document.getElementById('medicalForm');
+
+// Validation function
+function validateMedicalForm() {
+    const inputs = medicalForm.querySelectorAll('input');
+    let isValid = true;
+
+    inputs.forEach(input => {
+        if (input.value.trim() === '') {
+            isValid = false;
+            input.style.border = '2px solid red';
+        } else {
+            input.style.border = '1px solid gray';
+        }
+    });
+
+    return isValid;
+}
+
+// Handle medical form submission
+function handleMedicalFormSubmit(event) {
+    event.preventDefault();
+
+    if (validateMedicalForm()) {
+        alert('Form submitted successfully!');
+        medicalForm.reset();
+    } else {
+        alert('Please fill in all fields');
+    }
+}
+
+if (medicalForm)
+    medicalForm.addEventListener('submit', handleMedicalFormSubmit);
+
+// END OF THE MEDICAL FORM SECTION
