@@ -95,11 +95,13 @@ navLinks.forEach(link => {
     function navLinkHover() {
         this.style.color = 'navy';
         this.style.textDecoration = 'underline';
+        this.style.fontWeight = '800';
     }
 
     function navLinkReset() {
         this.style.color = 'black';
         this.style.textDecoration = 'none';
+        this.style.fontWeight = 'normal';
     }
 
     link.addEventListener('mouseover', navLinkHover);
