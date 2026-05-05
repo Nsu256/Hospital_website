@@ -179,11 +179,13 @@ window.addEventListener('click', handleWindowClick);
 // Handle form submission
 const appointmentForm = document.getElementById('appointmentForm');
 function handleFormSubmit(event) {
-    event.preventDefault();
-    alert('Appointment booked successfully! We will contact you soon.');
+    if (!appointmentForm.checkValidity()) {
+        event.preventDefault();
+        appointmentForm.reportValidity();
+        return;
+    }
+
     closeModal();
-    if (appointmentForm)
-		 appointmentForm.reset();
 }
 
 if (appointmentForm)
@@ -274,12 +276,10 @@ function validateMedicalForm() {
 
 // Handle medical form submission
 function handleMedicalFormSubmit(event) {
-    event.preventDefault();
-
     if (validateMedicalForm()) {
-        alert('Form submitted successfully!');
-        medicalForm.reset();
+        return;
     } else {
+        event.preventDefault();
         alert('Please fill in all fields');
     }
 }
