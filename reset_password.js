@@ -11,16 +11,8 @@ if (resetForm) {
 
         const username = document.getElementById('username') ? document.getElementById('username').value : '';
         const newPassword = document.getElementById('newpassword').value;
-        const confirmEl = document.getElementById('confirmpassword');
 
-        if (confirmEl) {
-            const confirmPassword = confirmEl.value;
-            if (newPassword !== confirmPassword) {
-                alert('Passwords do not match. Please try again.');
-                return;
-            }
-        }
-
+        // Confirm-password removed: proceed with reset and redirect
         alert('Password reset successfully! Redirecting to login...');
         window.location.href = 'login.html';
     });
