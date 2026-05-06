@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital Login</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <main class="login-card">
+        <h1>Hospital Login</h1>
+        <p>Sign in to continue to the hospital website.</p>
+
+        <form id="loginForm">
+            <div class="field">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" placeholder="Enter your username" required>
+            </div>
+
+            <div class="field">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Enter your password" required>
+            </div>
+
+            <div class="actions">
+                <button type="submit">Log In</button>
+                <a class="link-button" href="index.html">Go to Home</a>
+            </div>
+        </form>
+
+        <p class="note">This demo login redirects to the homepage after the form is submitted successfully.</p>
+    </main>
+
+    <script src="login.js"></script>
+</body>
+</html>
