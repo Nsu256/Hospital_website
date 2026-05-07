@@ -2,13 +2,9 @@ const loginForm = document.getElementById('loginForm');
 
 if (loginForm) {
     loginForm.addEventListener('submit', function (event) {
-        event.preventDefault();
-
         if (!loginForm.checkValidity()) {
+            event.preventDefault();
             loginForm.reportValidity();
-            return;
         }
-
-        window.location.href = 'home.html';
     });
 }
