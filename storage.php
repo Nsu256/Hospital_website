@@ -39,6 +39,12 @@ class FileStorage {
         return null;
     }
 
+    public function verifyPassword($username, $password) {
+        $user = $this->getUserByUsername($username);
+        if (!$user) return false;
+        return password_verify($password, $user['password_hash']);
+    }
+
     public function saveUser($username, $passwordHash) {
         $file = $this->getUsersFile();
         $user = $this->getUserByUsername($username);
