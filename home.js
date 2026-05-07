@@ -1,11 +1,24 @@
 // START OF THE HERO SECTION
 
-// Hero heading typewriter effect
+// Hero heading typewriter effect (fetch username from server)
 const heroTitle = document.getElementById('heroTitle');
-if (heroTitle) {
+async function initHeroTypewriter() {
+    if (!heroTitle) return;
+
+    let username = 'Sonirisa';
+    try {
+        const resp = await fetch('get_user.php', {credentials: 'same-origin'});
+        if (resp.ok) {
+            const data = await resp.json();
+            if (data && data.username) username = data.username;
+        }
+    } catch (e) {
+        // ignore and use fallback
+    }
+
     const heroTitleSegments = [
         { type: 'text', value: 'Tu ' },
-        { type: 'span', value: 'Sonirisa' },
+        { type: 'span', value: username },
         { type: 'text', value: ', tu mejor ' },
         { type: 'lineBreak' },
         { type: 'span', value: 'PRESENTACION' }
@@ -76,6 +89,9 @@ if (heroTitle) {
 
     typeHeroTitle();
 }
+
+initHeroTypewriter();
+
 
 // Navigation bar button hover effect
 const navButton = document.querySelector('.navbtn button');
