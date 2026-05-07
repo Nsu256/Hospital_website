@@ -15,36 +15,17 @@ if ($username === '' || $newPassword === '') {
 }
 
 try {
-    require __DIR__ . '/db.php';
+    require __DIR__ . '/storage.php';
 
-    $pdo->exec(
-        'CREATE TABLE IF NOT EXISTS users (
-            id INT AUTO_INCREMENT PRIMARY KEY,
-            username VARCHAR(100) NOT NULL UNIQUE,
-            password_hash VARCHAR(255) NOT NULL,
-            created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-            updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-        ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4'
-    );
+    $user = $FileStorage->getUserByUsername($username);
 
-    $checkStmt = $pdo->prepare('SELECT id FROM users WHERE username = :username LIMIT 1');
-    $checkStmt->execute(['username' => $username]);
-    $existing = $checkStmt->fetch();
-
-    if (!$existing) {
+    if (!$user) {
         header('Location: reset_password.html?error=user_not_found');
         exit;
     }
 
     $passwordHash = password_hash($newPassword, PASSWORD_DEFAULT);
-
-    $updateStmt = $pdo->prepare(
-        'UPDATE users SET password_hash = :password_hash WHERE username = :username'
-    );
-    $updateStmt->execute([
-        'password_hash' => $passwordHash,
-        'username' => $username,
-    ]);
+    $FileStorage->updateUserPassword($username, $passwordHash);
 
     header('Location: login.html?reset=1');
     exit;
