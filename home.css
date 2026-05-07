@@ -47,6 +47,16 @@ html{
     font-size: 16px;
     border: none;
 }
+
+#logoutBtn {
+    background-color: rgb(255, 68, 68);
+    margin-left: 10px;
+}
+
+#logoutBtn:hover {
+    background-color: rgb(220, 50, 50);
+}
+
 /* End of the navigation bar */
 
 

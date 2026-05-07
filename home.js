@@ -214,7 +214,7 @@ const appointmentModal = document.getElementById('appointmentModal');
 const closeBtn = document.querySelector('.close');
 
 // Get all Book Appointment buttons
-const navBookBtn = document.querySelector('.navbtn button');
+const navBookBtn = document.querySelector('#bookAppointmentNavBtn');
 const heroBookBtn = document.querySelector('#herobtn2');
 
 // Function to open the modal and click event listeners to open modal
